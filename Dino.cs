@@ -1,0 +1,90 @@
+﻿using GameLib;
+using SFML.System;
+using SFML.Window;
+using System;
+using System.Collections.Generic;
+
+
+namespace Gameproject
+{
+    public class Dino : KinematicBody
+    {
+        CollisionObj collisionObj;
+        bool onFloor;
+        AnimationStates states;
+        float speed = 0.5f;
+        bool isJump = false;
+        public Dino() 
+        {
+            Origin = new Vector2f(-10, 30);
+
+            var sprite = new SpriteEntity();
+            //sprite.Position = new Vector2f(10, 390);
+            sprite.Scale = new Vector2f(5, 5);
+            Add(sprite);
+
+            var texture = TextureCache.Get("Dino.png");
+            var fragments = FragmentArray.Create(texture, 24, 24);
+            var idle = new Animation(sprite, fragments.SubArray(4, 6), speed);
+            var jump = new Animation(sprite, fragments.SubArray(17, 7), speed);
+            states = new AnimationStates(idle,jump);
+            Add(states);
+
+            var shape = new CollisionRect(sprite.GetGlobalBounds().AdjustSize(0.7f, 0.7f));
+            collisionObj = new CollisionObj(shape);
+            collisionObj.DebugDraw = false;
+            collisionObj.OnCollide += OnCollide;
+            Add(collisionObj);
+        }
+
+        Dictionary<CollisionObj, Vector2f> directions = new Dictionary<CollisionObj, Vector2f>();
+
+        private void OnCollide(CollisionObj objB, CollideData Data)
+        {
+            if (Data.FirstContact)
+                directions[objB] = this.collisionObj.RelativeDirection(Data.OverlapRect);
+            var direction = directions[objB];
+
+            if (direction.Y == 1)
+                onFloor = true;
+
+            if (direction.Y == 1)
+            {
+                isJump = false;
+                V.Y = 0;
+                Position -= new Vector2f(0, Data.OverlapRect.Height * direction.Y);
+            }
+            else if (direction.X != 0)
+            {
+                V.X = 0;
+                Position -= new Vector2f(Data.OverlapRect.Width * direction.X, 0);
+            }
+        }
+        public override void KeyPressed(KeyEventArgs e)
+        {
+            base.KeyPressed(e);
+            if (e.Code == Keyboard.Key.Space && onFloor) {
+                this.isJump = true;
+                V.Y = -1000;
+            }
+        }
+        public override void FrameUpdate(float deltaTime)
+        {
+            base.FrameUpdate(deltaTime);
+            var direction = DirectionKey.Normalized;
+
+            if (isJump)
+                states.Animate(1);
+            else
+                states.Animate(0);
+           
+        }
+        public override void PhysicsUpdate(float fixTime)
+        {
+            onFloor = false;
+            Vector2f a = new Vector2f(0, 2000);
+            V += a * fixTime;
+            base.PhysicsUpdate(fixTime);
+        }
+    }
+}
