@@ -20,7 +20,7 @@ namespace Game08
 
             var shape = new CollisionRect(sprite.GetGlobalBounds());
             var collisionObj = new CollisionObj(shape);
-            collisionObj.DebugDraw = false;
+            collisionObj.DebugDraw = true;
             Add(collisionObj);
         }
 

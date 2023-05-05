@@ -15,7 +15,7 @@ namespace Gameproject
     {
         Texture backgroundTexture;
         Sprite backgroundSprite;
-        public Background(string v)
+        public Background()
         {
             backgroundTexture = new Texture("BG.png");
 

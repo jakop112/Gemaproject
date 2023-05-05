@@ -9,6 +9,7 @@ using System.Net.NetworkInformation;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Gameproject
 {
@@ -18,32 +19,67 @@ namespace Gameproject
         Group obj;
         CollisionObj collisionObj;
         Texture texture;
-        float speed = 1.0f;
+        float speed = 0.8f;
         bool onFloor;
+        bool isFly = false;
+        bool isWalk = false;
         public Obstruction(Group allObjs)
         {
+            Random rand = new Random();
+            var number = rand.Next(0,2);
+            if (number == 0)
+            {
+                isWalk = true;
+                isFly = false;
+            }
+            else
+            {
+                isWalk = false;
+                isFly = true;
+            }
             this.obj = allObjs;
+            anothermonster();
             monster();
         }
-        private void monster() 
+        private void monster()
         {
-            Origin = new Vector2f(-1290, -300);
+            //Origin = new Vector2f(-1290, -300);
+            var spritepee = new SpriteEntity();
+            spritepee.Scale = new Vector2f(4, 4);
+            //spritepee.Position = new Vector2f(1200,300);
+            Add(spritepee);
 
-            var sprite = new SpriteEntity();
-            sprite.Scale = new Vector2f(3, 3);
-            Add(sprite);
+            texture = TextureCache.Get("monpee.png");
+            var fragments = FragmentArray.Create(texture, 32, 32);
+            var fly = new Animation(spritepee, fragments.SubArray(0, 4), speed);
+            Add(fly);
 
-            texture = TextureCache.Get("mons.png");
-            var fragments = FragmentArray.Create(texture, 48, 48);
-            var walk = new Animation(sprite, fragments.SubArray(0, 8), speed);
-            Add(walk);
-
-            var shape = new CollisionRect(sprite.GetGlobalBounds().AdjustSize(0.6f, 0.6f));
+            var shape = new CollisionRect(spritepee.GetGlobalBounds().AdjustSize(0.7f, 0.7f));
             collisionObj = new CollisionObj(shape);
-            collisionObj.DebugDraw = false;
+            collisionObj.DebugDraw = true;
             collisionObj.OnCollide += OnCollide;
             Add(collisionObj);
         }
+        private void anothermonster()
+        {
+            //Origin = new Vector2f(-1290, -300);
+            var sprite = new SpriteEntity();
+            sprite.Position = new Vector2f(1200, 300);
+            sprite.Scale = new Vector2f(5, 5);
+            Add(sprite);
+
+            texture = TextureCache.Get("monsom.png");
+            var fragments = FragmentArray.Create(texture, 16, 16);
+            var walk = new Animation(sprite, fragments.SubArray(0, 4), speed);
+            Add(walk);
+
+            var shape = new CollisionRect(sprite.GetGlobalBounds().AdjustSize(1.0f, 1.0f));
+            collisionObj = new CollisionObj(shape);
+            collisionObj.DebugDraw = true;
+            collisionObj.OnCollide += OnCollide;
+            Add(collisionObj);
+        }
+
 
         Dictionary<CollisionObj, Vector2f> directions = new Dictionary<CollisionObj, Vector2f>();
 
@@ -67,7 +103,7 @@ namespace Gameproject
                 Position -= new Vector2f(Data.OverlapRect.Width * direction.X, 0);
             }
         }
-
+        
         public override void FrameUpdate(float deltaTime)
         {  
             this.V.X = -300;
@@ -82,8 +118,12 @@ namespace Gameproject
         public override void PhysicsUpdate(float fixTime)
         {
             onFloor = false;
-            Vector2f a = new Vector2f(0, 2000);
-            V += a * fixTime;
+            if (isWalk)
+            {
+                Vector2f a = new Vector2f(0, 1000);
+                V += a * fixTime;
+            }
+ 
             base.PhysicsUpdate(fixTime);
         }
     }

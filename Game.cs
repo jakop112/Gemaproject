@@ -22,7 +22,9 @@ namespace Gameproject
             var obj = new Obstruction(allObjs);
             allObjs.Add(obj);
 
+            
             window.RunGameLoop(allObjs);
+            
         }
     }
 }
