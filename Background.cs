@@ -13,22 +13,14 @@ namespace Gameproject
 {
     public class Background : Group
     {
-        Texture backgroundTexture;
-        Sprite backgroundSprite;
-        public Background()
+        Game game;
+        public Background(Game game)
         {
-            backgroundTexture = new Texture("BG.png");
-
-            backgroundSprite = new Sprite(backgroundTexture);
+            this.game = game;
+            var sprite = new SpriteEntity();
+            sprite.Scale = new Vector2f(2.5f, 2.5f);
+            Add(sprite);
         }
-        public void Draw(RenderWindow window)
-        {
-            window.Draw(backgroundSprite);
-        }
-
-        public override void FrameUpdate(float deltaTime)
-        {
-            base.FrameUpdate(deltaTime);
-        }
+  
     }
 }

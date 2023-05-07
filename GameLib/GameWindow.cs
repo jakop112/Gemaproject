@@ -93,11 +93,22 @@ namespace GameLib
                 FrameUpdateAll(deltaTime);
 
                 // Rendering
-                Clear(new Color(200, 200, 200)); // Background Color
+                Clear(Color.White); // Background Color /*new Color(200, 200, 200)*/ 
+                Background();
                 DrawAll();
                 Display();
             }
         }
+
+        private void Background()
+        {
+            Sprite background = new Sprite(new Texture("bg.png"));
+            background.Texture.Repeated = false;
+            background.TextureRect = new IntRect(0, 0, 1280, 720);
+            background.Scale = new Vector2f(5, 3);
+            this.Draw(background);
+        }
+
 
         private void PhysicsUpdateAll(float physicsInterval)
         {

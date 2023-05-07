@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wl0DKSyX+lOxPVwidAq2FEc5B93l4NfyhUU0QK9/QYHz/BKfdC3+0ygkWsmivG5zFahrWqsA4pdgAkJNpptKPg==",
+  "dgSpecHash": "xcYs+HAzwoIcIpp3juErkcW1y9zRfNi5Chx2Z1VBMOGWBzqmMdPeU5h2F3yHOKhcOplk3FA0qjCjnDPgzASlww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MSI\\Desktop\\Game\\Gameproject\\Gameproject.csproj",
+  "projectFilePath": "C:\\Users\\MSI\\Downloads\\Gameproject\\Gameproject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MSI\\.nuget\\packages\\csfml\\2.5.0\\csfml.2.5.0.nupkg.sha512",
     "C:\\Users\\MSI\\.nuget\\packages\\sfml.audio\\2.5.0\\sfml.audio.2.5.0.nupkg.sha512",

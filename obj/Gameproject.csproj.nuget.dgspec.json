@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MSI\\Desktop\\Game\\Gameproject\\Gameproject.csproj": {}
+    "C:\\Users\\MSI\\Downloads\\Gameproject\\Gameproject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MSI\\Desktop\\Game\\Gameproject\\Gameproject.csproj": {
+    "C:\\Users\\MSI\\Downloads\\Gameproject\\Gameproject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MSI\\Desktop\\Game\\Gameproject\\Gameproject.csproj",
+        "projectUniqueName": "C:\\Users\\MSI\\Downloads\\Gameproject\\Gameproject.csproj",
         "projectName": "Gameproject",
-        "projectPath": "C:\\Users\\MSI\\Desktop\\Game\\Gameproject\\Gameproject.csproj",
+        "projectPath": "C:\\Users\\MSI\\Downloads\\Gameproject\\Gameproject.csproj",
         "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MSI\\Desktop\\Game\\Gameproject\\obj\\",
+        "outputPath": "C:\\Users\\MSI\\Downloads\\Gameproject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",

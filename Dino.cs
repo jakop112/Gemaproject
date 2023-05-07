@@ -62,11 +62,11 @@ namespace Gameproject
                 V.Y = 0;
                 Position -= new Vector2f(0, Data.OverlapRect.Height * direction.Y);
             }
-            else if (direction.X != 0)
-            {
-                V.X = 0;
-                Position -= new Vector2f(Data.OverlapRect.Width * direction.X, 0);
-            }
+            //else if (direction.X != 0)
+            //{
+            //    V.X = 0;
+            //    Position -= new Vector2f(Data.OverlapRect.Width * direction.X, 0);
+            //}
         }
         public override void KeyPressed(KeyEventArgs e)
         {
@@ -74,7 +74,7 @@ namespace Gameproject
             if (e.Code == Keyboard.Key.Space && jumpCount < 2) {
                 jumpCount += 1;
                 this.isJump = true;
-                V.Y = -900;
+                V.Y = -850;
             }
             
             

@@ -38,12 +38,12 @@ namespace Gameproject
                 isFly = true;
             }
             this.obj = allObjs;
-            anothermonster();
+            //anothermonster();
             monster();
         }
         private void monster()
         {
-            //Origin = new Vector2f(-1290, -300);
+            Origin = new Vector2f(-1290, -300);
             var spritepee = new SpriteEntity();
             spritepee.Scale = new Vector2f(4, 4);
             //spritepee.Position = new Vector2f(1200,300);
@@ -97,11 +97,11 @@ namespace Gameproject
                 V.Y = 0;
                 Position -= new Vector2f(0, Data.OverlapRect.Height * direction.Y);
             }
-            else if (direction.X != 0)
-            {
-                V.X = 0;
-                Position -= new Vector2f(Data.OverlapRect.Width * direction.X, 0);
-            }
+            //else if (direction.X != 0)
+            //{
+            //    V.X = 0;
+            //    Position -= new Vector2f(Data.OverlapRect.Width * direction.X, 0);
+            //}
         }
         
         public override void FrameUpdate(float deltaTime)
