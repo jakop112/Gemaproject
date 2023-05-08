@@ -13,7 +13,7 @@ namespace Gameproject
     {
         SoundBuffer buffer = new SoundBuffer("Jump.wav");
         Music music = new Music("song.ogg");
-
+        
         public SoundJump()
         {
             Playsong();
@@ -27,11 +27,9 @@ namespace Gameproject
                 sound.Play();
             }
         }
-
         private void Playsong()
         { 
             music.Play();
-            
         }
     }
 }

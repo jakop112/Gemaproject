@@ -29,7 +29,7 @@ namespace Gameproject
             var texture = TextureCache.Get("Dino.png");
             var fragments = FragmentArray.Create(texture, 24, 24);
             var idle = new Animation(sprite, fragments.SubArray(4, 6), speed);
-            var jump = new Animation(sprite, fragments.SubArray(17, 7), speed);
+            var jump = new Animation(sprite, fragments.SubArray(10, 4), speed);
             var hurt = new Animation(sprite, fragments.SubArray(14, 3), speed);
             states = new AnimationStates(idle,jump,hurt);
             Add(states);

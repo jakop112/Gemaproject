@@ -15,7 +15,7 @@ namespace Gameproject
         public void GameMain()
         {
             allObjs.Add(new SoundJump());
-            allObjs.Add(new Block(new FloatRect(0, 500, 1280, 300)));
+            allObjs.Add(new Block(new FloatRect(0, 540, 1280, 300)));
 
             var dino = new Dino();
             allObjs.Add(dino);

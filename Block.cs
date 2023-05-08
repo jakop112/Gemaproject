@@ -17,9 +17,9 @@ namespace Game08
         public Block(FloatRect rect)
         {
 
-            var sprite = new SpriteEntity(new Texture("tilemap.png"));
+            var sprite = new SpriteEntity(new Texture("tileset.png"));
             sprite.Position = rect.GetPosition();
-            sprite.Scale = new Vector2f(12, 7);
+            //sprite.Scale = new Vector2f(1,1);
             Add(sprite);
 
             var shape = new CollisionRect(sprite.GetGlobalBounds());
