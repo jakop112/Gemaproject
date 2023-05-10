@@ -20,8 +20,14 @@ namespace Gameproject
             var dino = new Dino();
             allObjs.Add(dino);
 
-            var obj = new Obstruction(allObjs);
-            allObjs.Add(obj);
+            //var enemyWalk = new EnemyWalk(allObjs);
+            //allObjs.Add(enemyWalk);
+
+            //var enemyFly = new EnemyFly(allObjs);
+            //allObjs.Add(enemyFly);
+
+            var spawnerWalk = new SpawnerWalk(allObjs);
+            allObjs.Add(spawnerWalk);
 
 
             window.RunGameLoop(allObjs);

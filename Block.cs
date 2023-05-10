@@ -19,7 +19,7 @@ namespace Game08
 
             var sprite = new SpriteEntity(new Texture("tileset.png"));
             sprite.Position = rect.GetPosition();
-            //sprite.Scale = new Vector2f(1,1);
+            sprite.Scale = new Vector2f(2,1);
             Add(sprite);
 
             var shape = new CollisionRect(sprite.GetGlobalBounds());
