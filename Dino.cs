@@ -4,6 +4,7 @@ using SFML.System;
 using SFML.Window;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Gameproject
@@ -16,7 +17,9 @@ namespace Gameproject
         float speed = 0.5f;
         bool isJump = false;
         int jumpCount = 0;
-        bool Hit = false;
+        bool hit = false;
+        Clock clockHit;
+
         public Dino() 
         {
             Origin = new Vector2f(-10, 30);
@@ -45,10 +48,11 @@ namespace Gameproject
 
         private void OnCollide(CollisionObj objB, CollideData Data)
         {
+            var obstruction = objB.Parent as Obstruction;
+
             if (Data.FirstContact)
                 directions[objB] = this.collisionObj.RelativeDirection(Data.OverlapRect);
             var direction = directions[objB];
-            
             
             if (direction.Y == 1)
             {
@@ -56,11 +60,17 @@ namespace Gameproject
                 jumpCount = 0;
             }
 
-            if (direction.Y == 1)
+            if (direction.Y == 1 && obstruction == null)
             {
                 isJump = false;
                 V.Y = 0;
                 Position -= new Vector2f(0, Data.OverlapRect.Height * direction.Y);
+            }
+
+            if (obstruction != null && !hit)
+            {
+                hit = true;
+                clockHit = new Clock();
             }
             //else if (direction.X != 0)
             //{
@@ -84,9 +94,17 @@ namespace Gameproject
             base.FrameUpdate(deltaTime);
             var direction = DirectionKey.Normalized;
 
-            if (isJump)
+            if (isJump && !hit)
             {
                 states.Animate(1);
+            }
+            else if (hit)
+            {
+                states.Animate(2);
+                if(clockHit.ElapsedTime.AsSeconds() > 0.8f)
+                {
+                    hit = false;
+                }
             }
             else
                 states.Animate(0);
