@@ -10,7 +10,7 @@ namespace Gameproject
 {
     internal class EnemyFly : Obstruction
     {
-        public EnemyFly(Group allObjs) : base(allObjs)
+        public EnemyFly(Group allObjs, Vector2f origin) : base(allObjs)
         {
 
             Origin = new Vector2f(-1290, -300);
@@ -23,10 +23,10 @@ namespace Gameproject
             var fly = new Animation(spritepee, fragments.SubArray(0, 4), speed);
             Add(fly);
 
-            var shape = new CollisionRect(spritepee.GetGlobalBounds().AdjustSize(0.7f, 0.7f));
+            var shape = new CollisionRect(spritepee.GetGlobalBounds().AdjustSize(0.5f, 0.5f));
             collisionObj = new CollisionObj(shape);
             collisionObj.DebugDraw = true;
-            collisionObj.OnCollide += OnCollide;
+            //collisionObj.OnCollide += OnCollide;
             Add(collisionObj);
         }
 

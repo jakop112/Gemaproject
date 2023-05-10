@@ -51,7 +51,7 @@ namespace Gameproject
         
         public override void FrameUpdate(float deltaTime)
         {  
-            this.V.X = -300;
+            this.V.X = -400;
             base.FrameUpdate(deltaTime);
             if (Position.X < -1500)
             {

@@ -15,12 +15,16 @@ namespace Gameproject
         EnemyWalk enemyWalk;
         Group allObj;
         Clock clock;
+        Random rand;
+        float randomtime;
         public SpawnerWalk(Group allObj)
         {
             Origin = new Vector2f(-1450, -350);
 
             this.enemyWalk = new EnemyWalk(allObj, Origin);
             this.allObj = allObj;
+            rand = new Random();
+            randomtime = rand.Next(2, 5);
 
             //var obj = new RectangleEntity(rect.GetSize());
             //obj.OutlineColor = Color.Red;
@@ -32,8 +36,9 @@ namespace Gameproject
 
         public override void FrameUpdate(float deltaTime)
         {
-            if (clock.ElapsedTime.AsSeconds() > 3.0f) 
+            if (clock.ElapsedTime.AsSeconds() > randomtime) 
             {
+                randomtime = rand.Next(2, 5);
                 this.enemyWalk = new EnemyWalk(allObj, Origin);
                 this.allObj.Add(this.enemyWalk);
                 clock.Restart();

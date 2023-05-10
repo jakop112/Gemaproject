@@ -28,7 +28,8 @@ namespace Gameproject
 
             var spawnerWalk = new SpawnerWalk(allObjs);
             allObjs.Add(spawnerWalk);
-
+            var spawnerFly = new SpawnerFly(allObjs);
+            allObjs.Add(spawnerFly);
 
             window.RunGameLoop(allObjs);
             
