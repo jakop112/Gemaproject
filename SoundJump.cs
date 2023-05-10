@@ -16,7 +16,7 @@ namespace Gameproject
         
         public SoundJump()
         {
-            Playsong();
+            //Playsong();
         }
         public override void KeyPressed(KeyEventArgs e)
         {
