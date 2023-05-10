@@ -14,12 +14,28 @@ namespace GameLib
         {
         }
 
+        public SpriteEntity(string textureFileName) : this(TextureCache.Get(textureFileName))
+        {
+
+        }
+
         public SpriteEntity(Texture texture, IntRect rectangle) : base(texture, rectangle)
         {
         }
 
+        public SpriteEntity(Fragment fragment) : this(fragment.Texture, fragment.Rect)
+        {
+
+        }
+
         public SpriteEntity()
         {
+        }
+
+        public void ChangeTo(Fragment fragment)
+        {
+            this.Texture = fragment.Texture;
+            this.TextureRect= fragment.Rect;
         }
 
         public Entity? Parent { get { return parentImpl.Parent; } }

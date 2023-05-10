@@ -11,7 +11,7 @@ namespace Gameproject
     {
         GameWindow window = new GameWindow(new VideoMode(1280, 720), "GameProject");
         Group allObjs = new Group();
-        
+ 
         public void GameMain()
         {
             allObjs.Add(new SoundJump());
@@ -23,7 +23,7 @@ namespace Gameproject
             var obj = new Obstruction(allObjs);
             allObjs.Add(obj);
 
-            
+
             window.RunGameLoop(allObjs);
             
         }

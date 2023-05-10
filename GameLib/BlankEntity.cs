@@ -38,7 +38,6 @@ namespace GameLib
         public virtual void KeyReleased(KeyEventArgs e)
         {
         }
-
         public virtual void MouseButtonPressed(MouseButtonEventArgs e)
         {
         }
