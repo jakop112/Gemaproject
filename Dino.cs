@@ -39,7 +39,7 @@ namespace Gameproject
 
             var shape = new CollisionRect(sprite.GetGlobalBounds().AdjustSize(0.7f, 0.7f));
             collisionObj = new CollisionObj(shape);
-            collisionObj.DebugDraw = true;
+            collisionObj.DebugDraw = false;
             collisionObj.OnCollide += OnCollide;
             Add(collisionObj);
         }

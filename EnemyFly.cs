@@ -25,7 +25,7 @@ namespace Gameproject
 
             var shape = new CollisionRect(spritepee.GetGlobalBounds().AdjustSize(0.5f, 0.5f));
             collisionObj = new CollisionObj(shape);
-            collisionObj.DebugDraw = true;
+            collisionObj.DebugDraw = false;
             //collisionObj.OnCollide += OnCollide;
             Add(collisionObj);
         }

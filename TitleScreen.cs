@@ -12,6 +12,7 @@ namespace Gameproject
     public class TitleScreen : Group
     {
         Game game;
+        
         public TitleScreen(Game game)
         {
             this.game = game;
@@ -26,15 +27,15 @@ namespace Gameproject
         {
             var font = FontCache.Get("Thasadith-Regular.ttf");
             var buttonimg = new SpriteEntity("Button.png") { Scale = new Vector2f(1.0f, 1.0f) };
-            var playbutton = new ImageButton("Play", font, 40, buttonimg);
-            
+            var playbutton = new ImageButton("Play", font, 50, buttonimg);
+            playbutton.Position = new Vector2f(340, 400);
             Add(playbutton);
 
         }
         public override void MouseButtonPressed(MouseButtonEventArgs e)
         {
             base.MouseButtonPressed(e);
-            game.StartMainScene();
+            //game.StartMainScene();
         }
 
 
