@@ -19,7 +19,7 @@ namespace Gameproject
             allObjs.Add(new SoundJump());
             allObjs.Add(new Block(new FloatRect(0, 540, 1280, 300)));
 
-            var dino = new Dino();
+            var dino = new Dino(game);
             allObjs.Add(dino);
             var spawnerWalk = new SpawnerWalk(allObjs);
             allObjs.Add(spawnerWalk);

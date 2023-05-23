@@ -19,7 +19,7 @@ namespace GameLib
             text = new Text(str, font, (uint)charSize);
             text.FillColor = Color.Black;
             //text.Origin = text.TotalSize() / 2;
-            text.Position = this.buttonSize / 2;
+            text.Position = new Vector2f(this.buttonSize.X / 2.4f, this.buttonSize.Y / 5);
 
             UpdateVisual(ButtonState.Normal);
         }

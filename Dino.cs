@@ -19,9 +19,12 @@ namespace Gameproject
         int jumpCount = 0;
         bool hit = false;
         Clock clockHit;
+        int healht = 3;
+        Game game;
 
-        public Dino() 
+        public Dino(Game game) 
         {
+            this.game = game;
             Origin = new Vector2f(-10, 30);
 
             var sprite = new SpriteEntity();
@@ -70,6 +73,11 @@ namespace Gameproject
             if (obstruction != null && !hit)
             {
                 hit = true;
+                healht -= 1;
+                if (healht <= 0) 
+                { 
+                    game.StopMainScene();
+                }
                 clockHit = new Clock();
             }
             //else if (direction.X != 0)

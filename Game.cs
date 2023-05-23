@@ -14,10 +14,12 @@ namespace Gameproject
         Group screen = new Group();
         TitleScreen titlescreen;
         MainScreen mainScreen;
+        GameOver gameover;
         public Game()
         {
             titlescreen = new TitleScreen(this);
             mainScreen = new MainScreen(this);
+            gameover = new GameOver(this);
         }
         public void GameMain()
         {
@@ -50,6 +52,16 @@ namespace Gameproject
         {
             screen.Clear();
             screen.Add(mainScreen);
+        }
+        public void StopMainScene()
+        {
+            screen.Clear();
+            screen.Add(gameover);
+        }
+        public void Reset()
+        {
+            screen.Clear();
+            screen.Add(titlescreen);
         }
     }
 }
