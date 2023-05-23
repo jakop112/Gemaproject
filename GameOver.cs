@@ -1,4 +1,5 @@
 ﻿using GameLib;
+using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
 using System;
@@ -23,10 +24,14 @@ namespace Gameproject
         }
         public void Buttonimg()
         {
-            var font = FontCache.Get("Thasadith-Regular.ttf");
+            var font = FontCache.Get("210 8bit Bold.ttf");
             var buttonimg = new SpriteEntity("Button.png") { Scale = new Vector2f(1.0f, 1.0f) };
-            var playbutton = new ImageButton("Game Over", font, 40, buttonimg);
-            playbutton.Position = new Vector2f(340, 400);
+            var playbutton = new ImageButton("Game Over", font, 40, buttonimg)
+            {
+                Position = new Vector2f(340, 400),
+                TextColor = Color.White,
+                
+            };
             Add(playbutton);
         }
         public override void MouseButtonPressed(MouseButtonEventArgs e)
