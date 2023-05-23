@@ -24,7 +24,7 @@ namespace Game08
 
             var shape = new CollisionRect(sprite.GetGlobalBounds());
             var collisionObj = new CollisionObj(shape);
-            collisionObj.DebugDraw = true;
+            collisionObj.DebugDraw = false;
             Add(collisionObj);
         }
 

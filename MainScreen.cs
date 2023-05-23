@@ -25,7 +25,7 @@ namespace Gameproject
             allObjs.Add(spawnerWalk);
             var spawnerFly = new SpawnerFly(allObjs);
             allObjs.Add(spawnerFly);
-
+            this.Add(allObjs);
         }
     }
 }

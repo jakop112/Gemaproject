@@ -35,7 +35,7 @@ namespace Gameproject
         public override void MouseButtonPressed(MouseButtonEventArgs e)
         {
             base.MouseButtonPressed(e);
-            //game.StartMainScene();
+            game.StartMainScene();
         }
 
 
